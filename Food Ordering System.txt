@@ -1,0 +1,87 @@
+# Simplified Hotel Food Ordering System (No For Loops)
+
+def display_menu():
+    print("\n----Welcome to the Hotel Food Ordering System!----")
+    print("1: Starter")
+    print("2: Main Course")
+    print("3: Dessert")
+    print("4: Bill")
+    print("5: Exit")
+
+# Menu items
+menu = {
+    "starter": {"Soup": 5, "Salad": 7},
+    "main_course": {"Pasta": 12, "Steak": 20, "Pizza": 15},
+    "dessert": {"Ice Cream": 4, "Cake": 6}
+}
+
+# Initialize order list
+order = []
+
+def add_to_order(category):
+    """Add items to the order based on the category (no loops)."""
+    items = list(menu[category].items())  # Convert dictionary to list
+    print(f"\nAvailable {category.capitalize()}:")
+    if len(items) > 0:
+        print(f"1. {items[0][0]} - Rs.{items[0][1]}")
+    if len(items) > 1:
+        print(f"2. {items[1][0]} - Rs.{items[1][1]}")
+    if len(items) > 2:
+        print(f"3. {items[2][0]} - Rs.{items[2][1]}")
+
+    choice = input("Select an item by number (or type 'b' to go back): ")
+    if choice.lower() == 'b':
+        return  # Go back to the main menu
+
+    if choice.isdigit():
+        choice = int(choice)
+        if 1 <= choice <= len(items):
+            item_name, item_price = items[choice - 1]
+            order.append((item_name, item_price))
+            print(f"Added {item_name} to your order.")
+        else:
+            print("Invalid choice. Please try again.")
+    else:
+        print("Invalid input. Please enter a number.")
+
+def display_bill():
+    """Display the final bill."""
+    if not order:
+        print("\nYour order is empty.")
+        return
+
+    print("\nYour Bill:")
+    total = 0
+    if len(order) > 0:
+        print(f"{order[0][0]}: Rs.{order[0][1]}")
+        total += order[0][1]
+    if len(order) > 1:
+        print(f"{order[1][0]}: Rs.{order[1][1]}")
+        total += order[1][1]
+    if len(order) > 2:
+        print(f"{order[2][0]}: Rs.{order[2][1]}")
+        total += order[2][1]
+    print(f"----Total: Rs.{total}----")
+
+def main():
+    """Main function to run the ordering system."""
+    while True:
+        display_menu()
+        choice = input("\nEnter your choice: ")
+
+        if choice == '1':
+            add_to_order("starter")
+        elif choice == '2':
+            add_to_order("main_course")
+        elif choice == '3':
+            add_to_order("dessert")
+        elif choice == '4':
+            display_bill()
+        elif choice == '5':
+            print("\n----Thank you for using the Food Ordering System. Goodbye!----")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()

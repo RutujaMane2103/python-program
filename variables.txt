@@ -1,0 +1,58 @@
+
+#1.Calculate the multiplication and sum of two numbers
+
+#to take the input from user assign the two variable
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+
+multiplication = number1 * number2
+summation = number1 + number2
+
+#Display the result
+print("Multiplication of two numbers is: " + str(multiplication))
+print("Summation of two numbers is: " + str(summation))
+-----------------------------------------------------------------------------------------------
+#2.Declare two variables and print that which variable is largest using ternary operators
+
+#to take input from the user assign the two variable
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+
+#Here use a ternary operator to find the largest number
+largest = number1 if number1 > number2 else number2
+
+#Print the largest variable
+print(f"The largest number is: {largest}")
+
+---------------------------------------------------------------------------------------------
+
+#3. Python program to convert the temperature in degree centigrade to Fahrenheit
+
+#To take input temperature in Celsius
+celsius = float(input("Enter the temperature in Celsius: "))
+
+#Formula to convert Celsius to Fahrenheit
+fahrenheit = (celsius * 9/5) + 32
+
+#Display the result
+print(f"The temperature in Fahrenheit is: {fahrenheit}")
+
+---------------------------------------------------------------------------------------------
+
+#4.Python program to find the area of a triangle whose sides are given
+
+#Input the sides of the triangle
+a = float(input("Enter side a: "))
+b = float(input("Enter side b: "))
+c = float(input("Enter side c: "))
+
+#Calculate semi-perimeter
+s = (a + b + c) / 2
+
+#Calculate the area
+area = (s * (s - a) * (s - b) * (s - c)) ** 0.5
+
+# Display the result
+print(f"The area of the triangle is: {area}")
+
+
